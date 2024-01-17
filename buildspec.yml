@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+  # pre_build:
+  #   commands:
+  #     - aws --version
+  #     - aws s3 sync . s3://s3-pipeline-deploy --exclude "buildspec.yml" --exclude ".git"
+  build:
+    commands:
+      - aws cloudfront create-invalidation --distribution-id "E2YVGCTLQOUJYP" --paths "/*"
+
+artifacts:
+  files: "**/*"
+  exclude_buildspec: true
