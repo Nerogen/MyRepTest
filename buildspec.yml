@@ -9,8 +9,8 @@ phases:
   #     - aws --version
   #     - aws s3 sync . s3://s3-pipeline-deploy --exclude "buildspec.yml" --exclude ".git"
   build:
-    commands:
-      - aws cloudfront create-invalidation --distribution-id "E2YVGCTLQOUJYP" --paths "/*"
+    commands:  # E229UBUXBQ309W front id
+      - aws cloudfront create-invalidation --distribution-id "E229UBUXBQ309W" --paths "/*"
 
 artifacts:
   files: "**/*"
